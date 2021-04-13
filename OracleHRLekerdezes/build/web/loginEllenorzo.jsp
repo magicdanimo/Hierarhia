@@ -20,11 +20,10 @@
     <% } else {
       String felhasznalonev=request.getParameter("username");
       String jelszo=request.getParameter("password");
-      if(felhasznalonev.equalsIgnoreCase("a") &&
-           jelszo.equalsIgnoreCase("b")) { //true) { //false) {
+      if(lekerdez.siker(felhasznalonev,jelszo)==1) { //true) { //false) {
         lekerdez.setLoginOK(true);
         session.setAttribute("felhasznalonev", felhasznalonev);
-        response.sendRedirect("loginOK.jsp");
+        response.sendRedirect("hierarchia1.jsp");
       } else {
         lekerdez.setLoginOK(false);
         response.sendRedirect("loginHiba.jsp");
