@@ -13,6 +13,7 @@
   </head>
   <body>
     <h2>Bejelentkezés -> Hiba</h2>
+    <p><%= session.getAttribute("felhasznalonev") %></p>
     <p><a href="index.jsp">Címlap</a></p>
   </body>
 </html>

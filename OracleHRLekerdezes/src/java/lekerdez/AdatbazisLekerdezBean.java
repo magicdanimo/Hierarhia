@@ -71,21 +71,21 @@ public class AdatbazisLekerdezBean implements AdatbazisKapcsolat {
     return s.toString(); //"teszt, driver:"+ DRIVER;
   }  
   
-public int siker(String felhasznalo, String pass){
-String sql = AdatbazisKapcsolat.sql;
-sql.replace("##JELSZO##", pass);
-sql.replace("##FELHASZNALO##", felhasznalo);
+public int siker(String pass, String felhasznalo){
+String sql = AdatbazisKapcsolat.sql_DB;
+sql=sql.replace("##JELSZO##", pass);
+sql=sql.replace("##FELHASZNALO##", felhasznalo);
 int sor = 0;
 try {
       Class.forName(DRIVER);
       Connection kapcsolat=DriverManager.getConnection(URL, USER, PASSWORD);
       ResultSet eredmeny=kapcsolat.createStatement().executeQuery(sql);
       while(eredmeny.next()) {
-sor=Integer.parseInt(eredmeny.getString("db"));
+        sor=Integer.parseInt(eredmeny.getString("DB"));
       }
-return sor;
-    }catch(ClassNotFoundException | SQLException e) {
       return sor;
+    }catch(ClassNotFoundException | SQLException e) {
+      return -1;
     }
 }
 

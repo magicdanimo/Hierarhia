@@ -23,11 +23,13 @@
       if(lekerdez.siker(felhasznalonev,jelszo)==1) { //true) { //false) {
         lekerdez.setLoginOK(true);
         session.setAttribute("felhasznalonev", felhasznalonev);
+        
         response.sendRedirect("hierarchia1.jsp");
       } else {
         lekerdez.setLoginOK(false);
         response.sendRedirect("loginHiba.jsp");
       }
     } %>
+    <p><%= lekerdez.siker(request.getParameter("username"),request.getParameter("password")) %></p>
   </body>
 </html>

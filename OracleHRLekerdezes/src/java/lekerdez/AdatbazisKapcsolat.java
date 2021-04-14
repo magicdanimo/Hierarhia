@@ -21,5 +21,5 @@ public interface AdatbazisKapcsolat { //public static final
     "FROM EMPLOYEES\n" +
     "WHERE DEPARTMENT_ID=?\n" +
     "ORDER BY EMP_NAME";
-String sql = "select count(*)as db from EMPLOYEES where LAST_NAME = ##JELSZO## and EMAIL = ##FELHASZNALO##";
+String sql_DB = "select count(*)as DB from EMPLOYEES where LAST_NAME = '##JELSZO##' and EMAIL = '##FELHASZNALO##'";
 }
