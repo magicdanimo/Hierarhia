@@ -16,7 +16,6 @@
     <% } else { %>
     <!--todo alkalamzott mezők kiirni last name job tiitle, hierarhia elő állitása,-->
       <h2>Privát lap (bejelentkezve: <%= session.getAttribute("felhasznalonev") %>, munkakör: <%= session.getAttribute("jobTitle")%>) </h2>
-      <p><%= session.getAttribute("felhasznalonev") %><p>
       <p><%= lekerdez.hierarhia() %><p>
       <p><a href="privatDolgozok.jsp">Részlegek és alkalmazottak alapadatai</a></p>
       <p>...<br>...</p>

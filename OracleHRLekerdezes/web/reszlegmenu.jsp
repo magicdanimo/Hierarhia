@@ -5,14 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<jsp:useBean id="lekerdez" class="lekerdez.AdatbazisLekerdezBean" scope="session"/>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="reszlegCSS.css" rel="stylesheet" type="text/css"/>
+        <title>Részleg menü</title>
     </head>
     <body>
         <!--mega menü linkek legenerálása sqlböl-->
-        <h1>Hello World!</h1>
+        <p><%= lekerdez.megaMenu() %><p>
     </body>
 </html>

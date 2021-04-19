@@ -15,5 +15,7 @@
     <h2>Címlap</h2>
     <p>publikus lorem ipsum</p>
     <p><a href="login.jsp">Bejelentkezés</a></p>
+    <p><a href="hierarchia2.jsp">Hierarchia2</a></p>
+    <p><a href="reszlegmenu.jsp">Részlegmenü</a></p>
   </body>
 </html>
