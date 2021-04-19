@@ -22,8 +22,9 @@
       String jelszo=request.getParameter("password");
       if(lekerdez.siker(felhasznalonev,jelszo)==1) { //true) { //false) {
         lekerdez.setLoginOK(true);
+        String jobTitle=lekerdez.jobTitle(jelszo);
         session.setAttribute("felhasznalonev", felhasznalonev);
-        
+        session.setAttribute("jobTitle",jobTitle);
         response.sendRedirect("hierarchia1.jsp");
       } else {
         lekerdez.setLoginOK(false);

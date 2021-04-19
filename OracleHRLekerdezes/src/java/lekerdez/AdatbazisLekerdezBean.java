@@ -71,6 +71,40 @@ public class AdatbazisLekerdezBean implements AdatbazisKapcsolat {
     return s.toString(); //"teszt, driver:"+ DRIVER;
   }  
   
+public String jobTitle(String pass){
+    String sql = AdatbazisKapcsolat.SQL_JOB_TITLE;
+    sql=sql.replace("##EMAIL##", pass);
+    String sor="";
+    try {
+      Class.forName(DRIVER);
+      Connection kapcsolat=DriverManager.getConnection(URL, USER, PASSWORD);
+      ResultSet eredmeny=kapcsolat.createStatement().executeQuery(sql);
+      while(eredmeny.next()) {
+        sor=eredmeny.getString("JOB_TITLE");
+      }
+      return sor;
+    }catch(ClassNotFoundException | SQLException e) {
+      return "Hiba";
+    }   
+}  
+public String hierarhia(){
+    String lista="<ul id=\"myUL\">";
+    String sql = AdatbazisKapcsolat.SQL_HIERARHIA;
+    try {
+      Class.forName(DRIVER);
+      Connection kapcsolat=DriverManager.getConnection(URL, USER, PASSWORD);
+      ResultSet eredmeny=kapcsolat.createStatement().executeQuery(sql);
+      while(eredmeny.next()) {
+          lista+= "  <li><span class=\"caret\">"+ eredmeny.getString("FONOK")+" ("+eredmeny.getString("FONOKMUNKAKOR")+
+                  ") "+eredmeny.getString("FONOKFIZETES")+"</span>"+"</li>";
+      }
+      lista+="</ul>";
+      return lista;
+    }catch(ClassNotFoundException | SQLException e) {
+      return "Hiba";
+    }   
+}
+  
 public int siker(String pass, String felhasznalo){
 String sql = AdatbazisKapcsolat.sql_DB;
 sql=sql.replace("##JELSZO##", pass);
